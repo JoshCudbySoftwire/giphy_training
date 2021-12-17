@@ -21,12 +21,21 @@ function getGifs(url) {
 const konamiCode = "wahey".split("")
 var positionInCode = 0
 
+const unkonamiCode = "yehaw".split("")
+var positionInUnCode = 0
+
 function executeKonamiCode() {
     getGifs('/search?q=train&api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
     const audio = new Audio('https://bigsoundbank.com/UPLOAD/mp3/0227.mp3')
     audio.play()
     var header = document.getElementById('header')
     header.textContent = "WAHEY"
+}
+
+function executeUnKonamiCode() {
+    getGifs('/trending?api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
+    var header = document.getElementById('header')
+    header.textContent = "Ultimate Gifs"
 }
 
 function checkKonamiCode(key) {
@@ -36,10 +45,18 @@ function checkKonamiCode(key) {
     if (positionInCode === 5) executeKonamiCode()
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
+function checkUnKonamiCode(key) {
+    if (unkonamiCode[positionInUnCode++] !== key) {
+        positionInUnCode = 0
+    } 
+    if (positionInUnCode === 5) executeUnKonamiCode()
+}
+
+document.addEventListener('DOMContentLoaded', function() {
     getGifs('/trending?api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
 });
 
 document.addEventListener('keypress', function(event) {
     checkKonamiCode(event.key)
+    checkUnKonamiCode(event.key)
 })

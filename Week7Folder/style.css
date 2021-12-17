@@ -1,12 +1,26 @@
 html {
   background-image: linear-gradient(red, blue);
-  width: 100vw;
-  height: 100vh;
 }
 
 h1 {
   text-align: center;
+  color: white;
 }
 
+h3 {
+  color: white;
+}
 
+ol, li, img {
+  vertical-align: middle
+}
 
+li {
+  color: white;
+  font-size: large;
+  padding: 12pt;
+}
+
+img {
+  border: 5px solid white;
+}
