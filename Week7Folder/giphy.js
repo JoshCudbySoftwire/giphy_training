@@ -1,10 +1,12 @@
-function getGifs() {
-    fetch('https://api.giphy.com/v1/gifs/trending?api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
+function getGifs(url) {
+    fetch('https://api.giphy.com/v1/gifs' + url)
     .then(response =>
         response.json()
     ).then(jsonResponse => {
-        console.log(jsonResponse)
         var gifList = document.getElementById('gifList');
+        while (gifList.firstChild) {
+            gifList.removeChild(gifList.firstChild)
+        }
         for (var i = 0; i < jsonResponse.data.length; i++) {
             var imgOption = jsonResponse.data[i]
             var listItem = document.createElement('li')
@@ -16,6 +18,25 @@ function getGifs() {
     });
 } 
 
+const konamiCode = "wahey".split("")
+var positionInCode = 0
+
+function executeKonamiCode() {
+    alert("WAHEY!")
+    getGifs('/search?q=train&api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
+}
+
+function checkKonamiCode(key) {
+    if (konamiCode[positionInCode++] !== key) {
+        positionInCode = 0
+    } 
+    if (positionInCode === 5) executeKonamiCode()
+}
+
 document.addEventListener('DOMContentLoaded', function(event) {
-    getGifs()
+    getGifs('/trending?api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
 });
+
+document.addEventListener('keypress', function(event) {
+    checkKonamiCode(event.key)
+})
