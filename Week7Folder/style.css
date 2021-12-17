@@ -11,7 +11,7 @@ h3 {
   color: white;
 }
 
-ol, li, img {
+.vertical_centre, img {
   vertical-align: middle
 }
 
@@ -23,4 +23,22 @@ li {
 
 img {
   border: 5px solid white;
+}
+
+.horizontal {
+  display: inline-block;
+}
+
+.hidden {
+  display: none;
+}
+
+p {
+  color: white;
+  font-size: 50pt;
+  padding: 12pt;
+}
+
+li {
+  vertical-align: top
 }

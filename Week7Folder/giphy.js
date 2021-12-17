@@ -10,6 +10,7 @@ function getGifs(url) {
         for (var i = 0; i < jsonResponse.data.length; i++) {
             var imgOption = jsonResponse.data[i]
             var listItem = document.createElement('li')
+            listItem.setAttribute('class', 'vertical_centre')
             var imgElement = document.createElement('img');
             imgElement.setAttribute('src', imgOption.images.fixed_width.url)
             listItem.appendChild(imgElement)
@@ -30,12 +31,16 @@ function executeKonamiCode() {
     audio.play()
     var header = document.getElementById('header')
     header.textContent = "WAHEY"
+    var lner = document.getElementById("LNER")
+    lner.setAttribute('class', 'horizontal')
 }
 
 function executeUnKonamiCode() {
     getGifs('/trending?api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
     var header = document.getElementById('header')
     header.textContent = "Ultimate Gifs"
+    var lner = document.getElementById("LNER")
+    lner.setAttribute('class', 'hidden')
 }
 
 function checkKonamiCode(key) {
