@@ -22,8 +22,9 @@ const konamiCode = "wahey".split("")
 var positionInCode = 0
 
 function executeKonamiCode() {
-    alert("WAHEY!")
     getGifs('/search?q=train&api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
+    const audio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg')
+    audio.play()
 }
 
 function checkKonamiCode(key) {
