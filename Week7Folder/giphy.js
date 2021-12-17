@@ -23,8 +23,10 @@ var positionInCode = 0
 
 function executeKonamiCode() {
     getGifs('/search?q=train&api_key=3HytLEJjP62R4A3kMFoYgTtPENvl3jLV&limit=10')
-    const audio = new Audio('http://commondatastorage.googleapis.com/codeskulptor-assets/Evillaugh.ogg')
+    const audio = new Audio('https://bigsoundbank.com/UPLOAD/mp3/0227.mp3')
     audio.play()
+    var header = document.getElementById('header')
+    header.textContent = "WAHEY"
 }
 
 function checkKonamiCode(key) {
